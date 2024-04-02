@@ -4,7 +4,7 @@ from tkinter import ttk
 import customtkinter as ctk
 import os
 import pyttsx3
-from autocorrect import Speller
+#from autocorrect import Speller
 from googletrans import Translator, LANGUAGES
 from ttkthemes import ThemedStyle
 
@@ -96,12 +96,12 @@ tabside1.place(x=0,y=99.5)
 tabside2 = ctk.CTkFrame(master=top,fg_color="#3059F3",width=200, height=10,corner_radius=0)
 tabside2.place(x=900,y=99.5)
 
-logo_label= ctk.CTkLabel(master=tabview,text="SAHAYATA",fg_color="#3059F3",font=("Arial",24,"bold"))
+logo_label= ctk.CTkLabel(master=tabview,text="SAHAYATA",fg_color="#3059F3", text_color = "#ffffff" ,font=("Arial",24,"bold"))
 logo_label.place(x=44,y=39)
 
 
 
-image= tk.PhotoImage(file= r"C:\tensorflow\mpr_project\exit.png")
+image= tk.PhotoImage(file= r"./exit.png")
 button = tk.Button(tabview, image=image)
 #button.place(x=1000,y=20)
 
@@ -117,16 +117,16 @@ tab1 = ctk.CTkFrame(master=top,fg_color="#3059F3",width=1100, height=600,corner_
 tab1.place(x=0,y=100.5)
 
 
-background_image = Image.open(r"C:\tensorflow\mpr_project\back.png")
+background_image = Image.open(r"./back.png")
 background_photo = ImageTk.PhotoImage(background_image)
 
 background_label = tk.Label(tab1, image=background_photo, borderwidth=0)
 background_label.place(x=235, y=100)
 
-desc_label=ctk.CTkLabel(master=tab1,text="Everyone Deserves to Be Heard",fg_color="#3059F3",font=("Arial",24,"bold"))
+desc_label=ctk.CTkLabel(master=tab1,text="Everyone Deserves to Be Heard",fg_color="#3059F3", text_color = "#ffffff",font=("Arial",24,"bold"))
 desc_label.place(x=350,y=350)
 
-desc_label1 = ctk.CTkLabel(master=tab1, text="Let's build a society where all voices are valued and communication is accessible.Bridge the gap and create a world where everyone can connect.", fg_color="#3059F3", font=("Arial", 18), wraplength=650, justify="center")
+desc_label1 = ctk.CTkLabel(master=tab1, text="Let's build a society where all voices are valued and communication is accessible.Bridge the gap and create a world where everyone can connect.", fg_color="#3059F3", text_color = "#ffffff", font=("Arial", 18), wraplength=650, justify="center")
 desc_label1.place(x=250,y=410)
 
 
@@ -260,7 +260,7 @@ def update_and_speak_text(event):
     update_text(event)
     speak_text(event)
 
-spell = Speller()
+# spell = Speller()
 text_speech = pyttsx3.init()
 
 text_speech.setProperty('rate', 150)
@@ -272,8 +272,8 @@ def speak_text(event=None):
     if '@' in text1:
         text1 = text1.split('@')[0]
         txt.delete(0, tk.END)
-        text = spell(text1)
-        text_speech.say(text)
+        # text = spell(text1)
+        text_speech.say(text1)
         text_speech.runAndWait()
 
 txt = tk.Entry(tab2)
@@ -299,8 +299,8 @@ def box():
     global frame_count, current_gif_index,matching_files,current_index
     text = str(e1.get()).lower()
     words = text.split()
-    directory = r"C:\tensorflow\mpr_project\aplhabets\filtered_data"
-    directory2 = r"C:\tensorflow\mpr_project\aplhabets\alphabet"
+    directory = r"./aplhabets/filtered_data"
+    directory2 = r"./aplhabets/alphabet"
     matching_files = []
     frame_count = 0
     current_gif_index = 0
@@ -505,9 +505,9 @@ status_bar.place(x=200,y=450)
 
 
 #kunals & rohan catalogue
-but_image1 = Image.open(r"C:\tensorflow\mpr_project\kunal\abcd.png")
-but_image2 = Image.open(r"C:\tensorflow\mpr_project\kunal\abcd1.png")
-but_image3 = Image.open(r"C:\tensorflow\mpr_project\kunal\abcd2.png")
+but_image1 = Image.open(r"./kunal/abcd.png")
+but_image2 = Image.open(r"./kunal/abcd1.png")
+but_image3 = Image.open(r"./kunal/abcd2.png")
 
 image_width, image_height = but_image1.size
 aspect_ratio = image_width / image_height
@@ -635,67 +635,67 @@ def show_images(frame, image_paths):
         label.pack(padx=5, pady=5)
 
 image_paths = [
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\a.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\b.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\c.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\d.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\e.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\f.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\g.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\h.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\i.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\j.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\k.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\l.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\m.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\n.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\o.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\p.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\q.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\r.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\s.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\t.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\u.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\v.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\w.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\x.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\y.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\z.gif"
+    r"./aplhabets/alphabet/a.gif",
+    r"./aplhabets/alphabet/b.gif",
+    r"./aplhabets/alphabet/c.gif",
+    r"./aplhabets/alphabet/d.gif",
+    r"./aplhabets/alphabet/e.gif",
+    r"./aplhabets/alphabet/f.gif",
+    r"./aplhabets/alphabet/g.gif",
+    r"./aplhabets/alphabet/h.gif",
+    r"./aplhabets/alphabet/i.gif",
+    r"./aplhabets/alphabet/j.gif",
+    r"./aplhabets/alphabet/k.gif",
+    r"./aplhabets/alphabet/l.gif",
+    r"./aplhabets/alphabet/m.gif",
+    r"./aplhabets/alphabet/n.gif",
+    r"./aplhabets/alphabet/o.gif",
+    r"./aplhabets/alphabet/p.gif",
+    r"./aplhabets/alphabet/q.gif",
+    r"./aplhabets/alphabet/r.gif",
+    r"./aplhabets/alphabet/s.gif",
+    r"./aplhabets/alphabet/t.gif",
+    r"./aplhabets/alphabet/u.gif",
+    r"./aplhabets/alphabet/v.gif",
+    r"./aplhabets/alphabet/w.gif",
+    r"./aplhabets/alphabet/x.gif",
+    r"./aplhabets/alphabet/y.gif",
+    r"./aplhabets/alphabet/z.gif"
+    
 ]
 
 
 
 image_paths2 = [
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\0.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\1.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\2.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\3.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\4.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\5.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\6.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\7.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\8.gif",
-    r"C:\tensorflow\mpr_project\aplhabets\alphabet\9.gif",
-    
+    r"./aplhabets/alphabet/0.gif",
+    r"./aplhabets/alphabet/1.gif",
+    r"./aplhabets/alphabet/2.gif",
+    r"./aplhabets/alphabet/3.gif",
+    r"./aplhabets/alphabet/4.gif",
+    r"./aplhabets/alphabet/5.gif",
+    r"./aplhabets/alphabet/6.gif",
+    r"./aplhabets/alphabet/7.gif",
+    r"./aplhabets/alphabet/8.gif",
+    r"./aplhabets/alphabet/9.gif"
 ]
 
 image_paths3 = [
-    r"C:\tensorflow\mpr_project\kunal\py_logo.png",
-    r"C:\tensorflow\mpr_project\kunal\hamburger.png",
-    r"C:\tensorflow\mpr_project\kunal\hamburger.png",
-    r"C:\tensorflow\mpr_project\kunal\hamburger.png",
-    r"C:\tensorflow\mpr_project\kunal\py_logo.png",
-    r"C:\tensorflow\mpr_project\kunal\hamburger.png",
-    r"C:\tensorflow\mpr_project\kunal\py_logo.png",
-    r"C:\tensorflow\mpr_project\kunal\hamburger.png",
-    r"C:\tensorflow\mpr_project\kunal\py_logo.png",
-    r"C:\tensorflow\mpr_project\kunal\hamburger.png",
-    r"C:\tensorflow\mpr_project\kunal\py_logo.png",
-    r"C:\tensorflow\mpr_project\kunal\hamburger.png",
-    r"C:\tensorflow\mpr_project\kunal\py_logo.png",
-    r"C:\tensorflow\mpr_project\kunal\hamburger.png",
-    r"C:\tensorflow\mpr_project\kunal\py_logo.png",
-    r"C:\tensorflow\mpr_project\kunal\hamburger.png"
+    r"./kunal/py_logo.PNG",
+    r"./kunal/hamburger.png",
+    r"./kunal/hamburger.png",
+    r"./kunal/hamburger.png",
+    r"./kunal/py_logo.PNG",
+    r"./kunal/hamburger.png",
+    r"./kunal/py_logo.PNG",
+    r"./kunal/hamburger.png",
+    r"./kunal/py_logo.PNG",
+    r"./kunal/hamburger.png",
+    r"./kunal/py_logo.PNG",
+    r"./kunal/hamburger.png",
+    r"./kunal/py_logo.PNG",
+    r"./kunal/hamburger.png",
+    r"./kunal/py_logo.PNG",
+    r"./kunal/hamburger.png"
 ]
 
 top.mainloop()
